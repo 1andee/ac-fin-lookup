@@ -33,15 +33,15 @@ app.post("/", (req, res) => {
   console.log(`User searched for: ${req.body.search}`)
   let result = search(req.body.search)
   .then((result)=> {
-    console.log(result);
+    console.log(result)
     res.json(result);
-    console.log(`sent the result as json to DOM`)
+    console.log(`sent the result`)
   });
 });
 
-// Knex SQL search by fin #
+// Knex SQL search by fin # OR registration
 function search(id) {
-  return knex("fins").where("id", id)
+  return knex("fins").where("id", "like", `%${id}%`).orWhere("reg", "like", `%${id}%`);
 }
 
 app.listen(PORT, () => {
