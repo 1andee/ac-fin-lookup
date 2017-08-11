@@ -43,7 +43,7 @@ $(() => {
     };
 
     let row = `
-    <div class="row">
+    <div class="row" style="margin-top: 20px; border-bottom: 1px solid black";>
       <div class="two columns">
         <p>
           Fin ${element.id}
