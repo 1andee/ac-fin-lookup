@@ -10,7 +10,6 @@ $(() => {
       let data = {};
       data.title = "userSearch";
       data.query = $('.input-field').val();
-      console.log(data);
 
       $.ajax({
         url: '/',
@@ -23,7 +22,6 @@ $(() => {
         $('.search_results').append(count);
 
         response.forEach((element) => {
-          console.log(element);
           let aircraft = createListElement(element);
           $('.search_results').append(aircraft);
 
@@ -43,7 +41,7 @@ $(() => {
     };
 
     let row = `
-    <div class="row" style="margin-top: 20px; border-bottom: 1px solid black";>
+    <div class="row">
       <div class="two columns">
         <p>
           Fin ${element.id}
@@ -63,6 +61,7 @@ $(() => {
         ${logo}
       </div>
     </div>
+    <hr>
     `
     return row;
   };
