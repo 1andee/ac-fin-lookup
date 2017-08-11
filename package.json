@@ -1,0 +1,26 @@
+{
+  "name": "ac-fin-lookup",
+  "version": "0.0.1",
+  "description": "Query AC fleet by registration or fin",
+  "main": "express_server.js",
+  "engines": {
+    "node": "7.1.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Duke",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "4.0.0",
+    "ejs": "2.5.7",
+    "express": "4.15.3",
+    "knex": "0.13.0",
+    "knex-logger": "0.1.0",
+    "morgan": "1.8.2",
+    "pg": "7.1.0"
+  }
+}
