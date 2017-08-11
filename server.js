@@ -30,14 +30,9 @@ app.get('/', (req, res) => {
 
 // Search field
 app.post('/', (req, res) => {
-  console.log('req.body.query:', req.body.query);
   let result = search(req.body.query)
   .then((result)=> {
-    console.log('====================');
-    console.log('====== RESULT ======');
-    console.log(result)
     res.json(result);
-    console.log('====================');
   });
 });
 
