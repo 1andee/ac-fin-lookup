@@ -18,8 +18,9 @@ $(() => {
         data: data
       }).done((response) => {
 
-        let count = `<h5>Found ${response.length} matching aircraft</h5>`
-        $('.search_results').append(count);
+        let count = response.length;
+        let showCount = `<h5>Found ${count} matching aircraft</h5>`
+        $('.search_results').append(showCount);
 
         let tableHead = `
         <table id="results-table" class="u-full-width">
@@ -36,7 +37,7 @@ $(() => {
 
         $('.search_results').append(tableHead);
 
-        createListElement(response);
+        createListElement(response, count);
 
         let tableEnd =
         `</tbody>
@@ -47,25 +48,41 @@ $(() => {
 
 
 
-      createListElement = (response) => {
+      createListElement = (response, count) => {
 
-        response.forEach((element) => {
+        var textToInsert = []
+        var i = 0;
 
-          if (element.operator === 'Air Canada') {
+        for (var a = 0; a < count; a += i) {
+
+          if (response[a].operator === 'Air Canada') {
             var logo = `<img src="favicon.ico" height="15px" title="Air Canada (Mainline)" />`
-          } else if (element.operator === 'Rouge'){
+          } else if (response[a].operator === 'Rouge'){
             var logo = `<img src="images/rouge.png" height="15px" title="Rouge" />`
           };
 
-          $('tbody').append(`
-            <tr>
-              <td>${element.id}</td>
-              <td>${element.reg}</td>
-              <td>${element.specific_type}</td>
-              <td>${logo}</td>
-            </tr>`);
+          textToInsert[i++] = `<tr><td>${response[a].id}</td><td>${response[a].reg}</td><td>${response[a].specific_type}</td><td>${logo}</td></tr>`
+        }
 
-        });
+        $('tbody').append(textToInsert.join(''));
+
+        // response.forEach((element) => {
+        //
+        //   if (element.operator === 'Air Canada') {
+        //     var logo = `<img src="favicon.ico" height="15px" title="Air Canada (Mainline)" />`
+        //   } else if (element.operator === 'Rouge'){
+        //     var logo = `<img src="images/rouge.png" height="15px" title="Rouge" />`
+        //   };
+        //
+        //   $('tbody').append(`
+        //     <tr>
+        //       <td>${element.id}</td>
+        //       <td>${element.reg}</td>
+        //       <td>${element.specific_type}</td>
+        //       <td>${logo}</td>
+        //     </tr>`);
+        //
+        // });
       };
 
     };
