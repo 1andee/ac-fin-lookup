@@ -55,9 +55,9 @@ $(() => {
 
         for (var a = 0; a < count; a += 1) {
           if (response[a].operator === 'Air Canada') {
-            var logo = `<img src="favicon.ico" height="15px" title="Air Canada (Mainline)" />`
+            var logo = `<img src="favicon.ico" height="15px" title="Air Canada (Mainline)" style="filter: invert(0%);" />`
           } else if (response[a].operator === 'Rouge'){
-            var logo = `<img src="images/rouge.png" height="15px" title="Rouge" />`
+            var logo = `<img src="images/rouge.png" height="15px" title="Rouge" style="filter: invert(0%);" />`
           };
 
           textToInsert[i++] = `<tr><td>${response[a].id}</td><td>${response[a].reg}</td><td>${response[a].specific_type}</td><td>${logo}</td></tr>`

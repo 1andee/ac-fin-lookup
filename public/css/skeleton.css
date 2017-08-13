@@ -125,7 +125,9 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  color: #222;
+  transition: 2s background, color; /* ease day-night colour transition */
+}
 
 
 /* Typography
@@ -379,6 +381,10 @@ hr {
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 
+.night body {
+  background: #000;
+  color: #fff;
+}
 
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
