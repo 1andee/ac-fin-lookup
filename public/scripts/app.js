@@ -31,6 +31,8 @@ $(() => {
         let showCount = `<h5>Found ${count} matching aircraft</h5>`
         $('.search_results').append(showCount);
 
+        if (count > 0) {
+
         let tableHead = `
         <table id="results-table" class="u-full-width">
         <thead>
@@ -55,6 +57,7 @@ $(() => {
         </table>`
 
         $('.results-table').append(tableEnd);
+      }
       });
 
       createListElement = (response, count) => {
@@ -64,11 +67,21 @@ $(() => {
         for (i = 0; i < response.length; i++) {
           if (response[i].operator === 'Air Canada') {
             var logo = `<img src="favicon.ico" height="15px" title="Air Canada (Mainline)" />`
-          } else if (response[i].operator === 'Rouge'){
+          } else if (response[i].operator === 'Rouge') {
             var logo = `<img src="images/rouge.png" height="15px" title="Rouge" />`
-          };
+          } else if (response[i].operator === 'Jazz') {
+            var logo = `<img src="images/jazz.png" height="15px" title="Jazz" />`
+          } else if (response[i].operator === 'Sky Regional') {
+            var logo = `<img src="images/skv.png" height="15px" title="Sky Regional" />`
+          } else if (response[i].operator === 'Air Georgian') {
+            var logo = `<img src="images/ggn.png" height="15px" title="Air Georgian" />`
+          } else if (response[i].operator === 'EVAS') {
+            var logo = `<img src="images/evas.png" height="15px" title="EVAS" />`
+          } else if (response[i].operator === 'CMA') {
+            var logo = `<img src="images/cma.png" height="15px" title="CMA" />`
+          }
 
-          textToInsert.push(`<tr><td>${response[i].id}</td><td>${response[i].reg}</td><td>${response[i].specific_type}</td><td>${logo}</td></tr>`)
+          textToInsert.push(`<tr><td>${response[i].fin}</td><td>${response[i].reg}</td><td>${response[i].specific_type}</td><td>${logo}</td></tr>`)
         };
         $('tbody').append(textToInsert);
       };

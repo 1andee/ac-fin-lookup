@@ -32,17 +32,22 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   let { query, operator } = req.body;
 
-  Promise.all(operator.map((operator) => {
-    return knex('fins')
-    .where('id', 'like', `%${query}%`)
-    .andWhere('operator', operator)
-    .orWhere('reg', 'like', `%${query}%`)
-    .andWhere('operator', operator)
-    .orderBy('id', 'asc')
-  }))
+  console.log(operator);
+
+  if (operator !== undefined) {
+    Promise.all(operator.map((operator) => {
+      return knex('fins')
+      .where('fin', 'like', `%${query}%`)
+      .andWhere('operator', operator)
+      .orWhere('reg', 'like', `%${query}%`)
+      .andWhere('operator', operator)
+      .orderBy('fin', 'asc')
+    }))
     .then((response)=> {
-    res.json(response);
-    });
+      res.json(response);
+    })
+  };
+
 });
 
 app.listen(PORT, () => {
