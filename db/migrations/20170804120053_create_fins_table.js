@@ -1,7 +1,8 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('fins', function (t) {
-    t.string('id').unique().primary();
+    t.increments();
+    t.string('fin');
     t.string('reg');
     t.string('type');
     t.foreign('type').references('type').inTable('acft_types').onDelete('CASCADE');
