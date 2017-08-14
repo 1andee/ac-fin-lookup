@@ -30,16 +30,20 @@ app.get('/', (req, res) => {
 
 // Search field
 app.post('/', (req, res) => {
-  let result = search(req.body.query)
-  .then((result)=> {
-    res.json(result);
-  });
-});
+  let { query, operator } = req.body;
 
-// Knex SQL search by fin # OR registration
-function search(id) {
-  return knex('fins').where('id', 'like', `%${id}%`).orWhere('reg', 'like', `%${id}%`).orderBy('id', 'asc');
-}
+  Promise.all(operator.map((operator) => {
+    return knex('fins')
+    .where('id', 'like', `%${query}%`)
+    .andWhere('operator', operator)
+    .orWhere('reg', 'like', `%${query}%`)
+    .andWhere('operator', operator)
+    .orderBy('id', 'asc')
+  }))
+    .then((response)=> {
+    res.json(response);
+    });
+});
 
 app.listen(PORT, () => {
   console.log('fin-lookup is listening on port ' + PORT);
