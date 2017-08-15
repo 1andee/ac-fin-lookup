@@ -32,8 +32,6 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   let { query, operator } = req.body;
 
-  console.log(operator);
-
   if (operator !== undefined) {
     Promise.all(operator.map((operator) => {
       return knex('fins')
