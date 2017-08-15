@@ -8,32 +8,27 @@ $(() => {
 
     if (currentMonth >= 1 && currentMonth <= 2) {
       if (currentHour < 8 || currentHour >= 17) {
-        console.log("Night-mode activated in 1st if statement")
         document.documentElement.classList.add('night');
       };
     } else if (currentMonth >= 3 && currentMonth <= 4) {
       if (currentHour < 7 || currentHour >= 20) {
-        console.log("Night-mode activated in 2nd if statement")
         document.documentElement.classList.add('night');
       };
     } else if (currentMonth >= 5 && currentMonth <= 8) {
       if (currentHour < 6 || currentHour >= 21) {
-        console.log("Night-mode activated in 3rd if statement")
         document.documentElement.classList.add('night');
       };
     } else if (currentMonth >= 9 && currentMonth <= 11) {
       if (currentHour < 7 || currentHour >= 18) {
-        console.log("Night-mode activated in 4th if statement")
         document.documentElement.classList.add('night');
       };
     } else if (currentMonth >= 11) {
       if (currentHour < 8 || currentHour >= 17) {
-        console.log("Night-mode activated in 5th if statement")
         document.documentElement.classList.add('night');
       };
     };
   };
-  
+
   timeCheck();
 
 });
