@@ -1,5 +1,9 @@
 $(() => {
 
+  $("#settings").on("click", () => {
+    $("#opr_select").slideToggle();
+  })
+
   $("#search_bar .input-field").keypress((e) => {
     if(e.which == 13) {
 
@@ -78,7 +82,7 @@ $(() => {
           } else if (response[i].operator === 'EVAS') {
             var logo = `<img src="images/evas.png" height="15px" title="EVAS" />`
           } else if (response[i].operator === 'CMA') {
-            var logo = `<img src="images/cma.png" height="15px" title="CMA" />`
+            var logo = `<img src="images/cma.png" width="125px" title="CMA" />`
           }
 
           textToInsert.push(`<tr><td>${response[i].fin}</td><td>${response[i].reg}</td><td>${response[i].specific_type}</td><td>${logo}</td></tr>`)
