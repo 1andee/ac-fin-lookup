@@ -470,6 +470,15 @@ footer {
   width:100%;
 }
 
+footer a {
+  color: black;
+}
+
+.night footer #photo_credit {
+  display: none;
+
+}
+
 
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
