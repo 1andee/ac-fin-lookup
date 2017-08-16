@@ -26,7 +26,9 @@ $(() => {
       if (currentHour < 8 || currentHour >= 17) {
         document.documentElement.classList.add('night');
       };
-    };
+    } else {
+      document.documentElement.classList.add('day');
+    }
   };
 
   timeCheck();
