@@ -448,6 +448,7 @@ hr {
 @media (min-width: 750px) {
   #opr_select {
     width: 50%;
+    padding-bottom: -20px;
   }
 
   #opr_select ul {
